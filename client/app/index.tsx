@@ -1,4 +1,4 @@
-import PrimaryButton from "@/components/PrimaryButton";
+import { PrimaryButton } from "@/components";
 import { Image, SafeAreaView, Text, View } from "react-native";
 
 import { icons, images } from "@/constants";

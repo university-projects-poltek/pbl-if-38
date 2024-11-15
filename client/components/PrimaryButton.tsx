@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   btnPrimary: {
     backgroundColor: "#125491",
     paddingVertical: 12,
-    paddingHorizontal: 100,
     borderRadius: 8,
+    marginVertical: 10,
   },
 });
