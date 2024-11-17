@@ -66,7 +66,7 @@ export default function SignIn() {
             color: "#125491",
           }}
         >
-          Sign Up
+          Daftar
         </Link>
       </View>
     </SafeAreaView>
