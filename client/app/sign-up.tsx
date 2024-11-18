@@ -6,7 +6,7 @@ import { FormField } from "@/components";
 import PrimaryButton from "@/components/PrimaryButton";
 import { Image, SafeAreaView, Text, View } from "react-native";
 
-export default function SignIn() {
+export default function SignUp() {
   return (
     <SafeAreaView
       style={{
@@ -32,15 +32,17 @@ export default function SignIn() {
           fontWeight: 700,
         }}
       >
-        Selamat datang👋
+        Buat akun dahulu
       </Text>
 
       <FormField placeHolder="Username" type="text" />
+      <FormField placeHolder="Email" type="text" />
       <FormField placeHolder="Password" type="password" />
+      <FormField placeHolder="Re-Password" type="password" />
 
       <PrimaryButton
-        title="Masuk"
-        handlerPress={() => router.push("/sign-in")}
+        title="Daftar"
+        handlerPress={() => router.push("/sign-up")}
       />
 
       <View
@@ -56,17 +58,17 @@ export default function SignIn() {
             color: "#333",
           }}
         >
-          Belom punya akun?
+          Sudah punya akun?
         </Text>
         <Link
-          href="/sign-up"
+          href="/sign-in"
           style={{
             fontSize: 14,
             fontWeight: 700,
             color: "#125491",
           }}
         >
-          Daftar
+          Masuk
         </Link>
       </View>
     </SafeAreaView>
