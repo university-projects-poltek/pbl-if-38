@@ -35,9 +35,10 @@ export default function SignUp() {
         Buat akun dahulu
       </Text>
 
-      <FormField placeHolder="Username" />
-      <FormField placeHolder="Email" />
-      <FormField placeHolder="Password" />
+      <FormField placeHolder="Username" type="text" />
+      <FormField placeHolder="Email" type="text" />
+      <FormField placeHolder="Password" type="password" />
+      <FormField placeHolder="Re-Password" type="password" />
 
       <PrimaryButton
         title="Daftar"

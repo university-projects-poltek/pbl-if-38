@@ -59,7 +59,7 @@ const FormField = ({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           style={{
-            color: "#fff",
+            color: "#333",
             flex: 1,
           }}
         />
@@ -67,7 +67,7 @@ const FormField = ({
         {type === "password" && (
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Image
-              // source={showPassword ? icons.eyeHide : icons.eye}
+              source={showPassword ? icons.eyeHide : icons.eye}
               style={{ width: 20, height: 20 }}
               resizeMode="contain"
             />

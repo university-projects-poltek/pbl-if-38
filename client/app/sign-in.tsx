@@ -35,8 +35,8 @@ export default function SignIn() {
         Selamat datang👋
       </Text>
 
-      <FormField placeHolder="Username" />
-      <FormField placeHolder="Password" />
+      <FormField placeHolder="Username" type="text" />
+      <FormField placeHolder="Password" type="password" />
 
       <PrimaryButton
         title="Masuk"
