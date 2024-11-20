@@ -14,9 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
 
-Route::get('/1', function () {
-    return view('homepage');
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+
+
+Route::get('/dashboard', function () {
+    return view('templates.defaultOfficer');
 });

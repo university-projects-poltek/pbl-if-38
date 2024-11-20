@@ -1,4 +1,9 @@
-@extends('layouts.app') @section( 'content')
+@extends('layouts.app') 
+
+@section( 'content')
+
+<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
 <div class="container">
     <h1>Hello, Bootstrap in Laravel 10!</h1>
