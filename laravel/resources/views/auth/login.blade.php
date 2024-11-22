@@ -14,6 +14,20 @@
             <img src="{{ asset('assets/favicon.ico') }}" alt="Logo" width="150" height="75">
             
             <h2>Selamat datang 👋</h2>
+
+            @if (session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             
             <!-- Login Form -->
             <form method="POST" action="{{ route('login.submit') }}">
