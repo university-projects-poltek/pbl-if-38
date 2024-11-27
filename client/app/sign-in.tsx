@@ -3,7 +3,7 @@ import { icons } from "@/constants";
 import { Link, router } from "expo-router";
 
 import { FormField } from "@/components";
-import PrimaryButton from "@/components/PrimaryButton";
+import { PrimaryButton } from "@/components/buttons";
 import { Image, SafeAreaView, Text, View } from "react-native";
 
 export default function SignIn() {
@@ -40,7 +40,7 @@ export default function SignIn() {
 
       <PrimaryButton
         title="Masuk"
-        handlerPress={() => router.push("/sign-in")}
+        handlerPress={() => router.replace("/(tabs)/home")}
       />
 
       <View
