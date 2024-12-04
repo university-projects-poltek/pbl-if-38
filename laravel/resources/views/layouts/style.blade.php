@@ -67,6 +67,5 @@
         background-color: transparent; 
         border: 2px solid #125491;
     }
-
 </style>
 
