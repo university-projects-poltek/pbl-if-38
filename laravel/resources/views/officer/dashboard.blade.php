@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title', 'Dashboard')
 
@@ -56,42 +56,25 @@
         // Chart.js Configuration
         const ctx = document.getElementById('reportChart').getContext('2d');
         const reportChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-                datasets: [{
-                    label: 'Tingkat Laporan',
-                    data: [250, 500, 750, 1000, 900, 800, 850, 900, 850, 700, 950, 1000],
-                    borderColor: '#0d6efd',
-                    tension: 0.3,
-                    fill: false
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
+        type: 'line',
+        data: {
+            labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+            datasets: [{
+            label: 'Tingkat Laporan',
+            data: [250, 500, 750, 1000, 900, 800, 850, 900, 850, 700, 950, 1000],
+            borderColor: '#0d6efd',
+            tension: 0.3,
+            fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+            legend: { display: false }
             }
+        }
         });
     </script>
 </div>
 
 @endsection
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-</head>
-
-<body>
-
-    <h1>Welcome to the Admin Dashboard</h1>
-</body>
-
-</html>

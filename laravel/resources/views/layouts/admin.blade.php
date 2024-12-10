@@ -11,7 +11,7 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- Side Bar -->
-                @include('layouts.sidebar')
+                @include('layouts.sidebar-admin')
                 <!-- Main Content -->
                 <div class="col-md-9 col-lg-10 p-4 content">
                     <!-- Header -->
@@ -30,4 +30,5 @@
         </div>
         @include('layouts.style')
     </body>
+    @yield('script')
 </html>

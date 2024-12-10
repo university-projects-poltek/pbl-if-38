@@ -2,7 +2,7 @@
 
 @section('title', 'Dashboard')
 
-@section('breadCrumb', 'Edit Profile')
+@section('breadCrumb', 'Edit Petugas')
 
 @section('content')
 
@@ -15,10 +15,8 @@
         <div class="row">
             <!-- Form Utama -->
             <div class="col-md-8 me-2 card-content" style="height: fit-content;">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{route('admin.update.petugas')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
-
                     <div class="px-3 pt-4 row">
                         <!-- Nama Lengkap -->
                         <div class="col-md-6 mb-3">
