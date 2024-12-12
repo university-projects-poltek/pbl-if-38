@@ -6,7 +6,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 // use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\OfficerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +18,7 @@ use App\Http\Controllers\OfficerController;
 */
 
 Route::get('/', function () {
-    return view('homepage');
+    return 'homepage';
 });
 
 Route::get('/login', function () {
