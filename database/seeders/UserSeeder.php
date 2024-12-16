@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin User',
             'username' => 'admin',
             'email' => 'admin@example.com',
-            'password' => Hash::make('password'), // Ganti dengan password yang aman
+            'password' => Hash::make('password'),
             'role' => 'admin',
         ]);
 
@@ -25,8 +25,16 @@ class UserSeeder extends Seeder
             'name' => 'Officer User',
             'username' => 'officer',
             'email' => 'officer@example.com',
-            'password' => Hash::make('password'), // Ganti dengan password yang aman
+            'password' => Hash::make('password'),
             'role' => 'officer',
+        ]);
+
+        User::create([
+            'name' => 'User',
+            'username' => 'user1',
+            'email' => 'user@example.com',
+            'password' => Hash::make('password'),
+            'role' => 'user',
         ]);
     }
 }

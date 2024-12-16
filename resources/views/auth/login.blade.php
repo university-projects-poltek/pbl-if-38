@@ -1,80 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.auth', ['title' => 'login'])
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="icon" href="asset('assets/favicon.ico')" type="">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-</head>
 
-<body>
-    <div class="login-container">
-        <!-- Logo Icon -->
-        <img src="{{ asset('assets/favicon.ico') }}" alt="Logo" width="150" height="75">
+@section('content')
 
-        <h2>Selamat datang 👋</h2>
-
-        @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
-
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-
-        <!-- Login Form -->
-        <form method="POST" action="{{ route('login.submit') }}">
-            @csrf
-            <input type="text" class="form-control" name="username" placeholder="Username" required>
-            <input type="password" class="form-control form-margin" name="password" placeholder="Password" required>
-            <button type="submit" class="btn btn-primary btn-wide" style="margin-top: 10px;">Masuk</button>
-        </form>
+<div class="login-container fw-bold">
+    <div class="text-center">
+        <img src="{{ asset('assets/favicon.ico') }}"
+            alt="Logo">
+        <h1>Selamat datang 👋</h1>
     </div>
 
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f8f9fa;
-            margin: 0;
-        }
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
 
-        .login-container {
-            width: 100%;
-            max-width: 400px;
-            padding: 2rem;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            text-align: center;
-        }
+    <form method="POST"
+        action="{{ route('login.submit') }}">
+        @csrf
 
-        .login-container img {
-            width: 60px;
-            margin-bottom: 1rem;
-        }
+        <div class="mb-3">
+            <input type="text"
+                class="form-control"
+                placeholder="Username"
+                name="username"
+                required>
+        </div>
+        <div class="mb-3">
+            <input type="password"
+                class="form-control"
+                placeholder="Password"
+                name="password"
+                required>
+        </div>
 
-        .login-container h2 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
+        @if ($errors->has('username'))
+        <p class="text-danger ms-2 mt-1 fw-medium">{{ $errors->first('username') }}</p>
+        @endif
+        <button type="submit"
+            class="btn btn-primary">Masuk</button>
+    </form>
+    <p class="mt-3">Belom punya akun? <a href="{{ route('register') }}"
+            class="text-primary">Daftar</a></p>
+</div>
 
-        .btn-wide {
-            width: 100%;
-        }
-    </style>
-</body>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
-</html>
+
+@endsection
