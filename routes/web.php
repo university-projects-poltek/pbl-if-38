@@ -25,19 +25,26 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
-Route::get('/profile', function () {
-    return view('officer.profileOfficer');
-});
+// Route::get('/dash/officer', function () {
+//     return view('officer.dashboard');
+// });
 
-Route::get('/petugas', function () {
-    return view('officer.petugas');
-});
+// Route::get('/profile', function () {
+//     return view('officer.profileOfficer');
+// });
+
+// Route::get('/petugas', function () {
+//     return view('officer.petugas');
+// });
 
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 
-
-Route::get('/dashboard', function () {
-    return view('templates.defaultOfficer');
-});
+Route::get('/officer/dashboard', [OfficerController::class, 'index'])->name('dashboard');
+Route::get('/officer/profile', [OfficerController::class, 'profile'])->name('profile');
+Route::get('/officer/table', [OfficerController::class, 'officersTable'])->name('officersTable');
+Route::get('/officer/table/addofficer', [OfficerController::class, 'addOfficer'])->name('addOfficer');
+Route::get('/officer/reports', [OfficerController::class, 'reportsTable'])->name('reportsTable');
+Route::get('/officer/reports/edit/{id}/edit', [OfficerController::class, 'editReport'])->name('editReport');
+Route::put('/officer/reports/{id}/{status}', [OfficerController::class, 'updateReportStatus'])->name('updateReportStatus');

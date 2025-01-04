@@ -6,6 +6,24 @@
 *.md diff=markdown
 *.php diff=php
 
+# Binary files
+*.jpg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.mp4 binary
+*.mp3 binary
+
+# Laravel-specific files
+/vendor export-ignore
+/node_modules export-ignore
+*.lock export-ignore
+
+
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
