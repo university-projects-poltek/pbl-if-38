@@ -3,7 +3,7 @@
 
 @section('title', 'Dashboard')
 
-@section('breadCrumb', 'Edit Profile')
+@section('breadCrumb', 'Add Petugas')
 
 @section('content')
 
@@ -15,11 +15,9 @@
     <div class="">
         <div class="row">
             <!-- Form Utama -->
-            <div class="col-md-8 me-2 card-content" style="height: fit-content;">
-                <form action="" method="POST" enctype="multipart/form-data">
+            <div class="col-md me-2 card-content" style="height: fit-content;">
+                <form action="{{route('admin.create.petugas')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
-
                     <div class="px-3 pt-4 row">
                         <!-- Nama Lengkap -->
                         <div class="col-md-6 mb-3">
@@ -96,42 +94,6 @@
                     <div class="d-flex justify-content-end mb-4">
                         <button type="reset" class="btn btn-secondary me-2">Batal</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Foto Profil -->
-            <div class="col-md-3 ms-4 card-content" style="height: fit-content; width: 350px;">
-                <h4 class="pt-3">User Pofile</h4>
-                <div class="mb-3 row align-items-center">
-                    <div class="col">
-                        <img src="{{ asset('assets/image/udin.jpeg') }}" alt="User Photo" class="img-thumbnail rounded-circle" style="width: 100px; height: 100px;">
-                    </div>
-                    <div class="col text-item-center pe-4 me-3">
-                        <div class="row">
-                            <h5>User Photo</h5>
-                            <p>Update  Delete</p>
-                            <!-- <div class="col-md-6"><p>delete</p></div>
-                            <div class="col-md-6"><p>update</p></div> -->
-                        </div>
-                    </div>
-                </div>
-                <form action="" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <!-- <input type="file" class="form-control mb-3" name="photo" accept=".jpg,.jpeg,.png,.svg"> -->
-                    <div class="drop-area" id="drop-area">
-                        <label for="fileElem" class="file-label">
-                            <p>Seret dan lepas file di sini, atau klik untuk memilih file</p>
-                            <input type="file" id="fileElem" multiple accept="image/*" style="display:none;">
-                        </label>
-                    </div>
-                    <div class="button-area row mb-3">
-                        <div class="col-md-5"></div>
-                        <div class="col d-flex justify-content-end">
-                            <button type="submit" class="btn btn-danger me-1" >Hapus</button>
-                            <a href="" class="btn btn-primary">Simpan</a>
-                        </div>
                     </div>
                 </form>
             </div>

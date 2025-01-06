@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -18,6 +17,7 @@ class LoginController extends Controller
     // Menangani proses login
     public function login(Request $request)
     {
+        // Validasi data login
         $request->validate([
             'username' => 'required|string',
             'password' => 'required|string',
@@ -25,23 +25,25 @@ class LoginController extends Controller
 
         $credentials = $request->only('username', 'password');
 
+        // Mencoba login dengan kredensial yang diberikan
         if (Auth::attempt($credentials)) {
-            // Authentication was successful
+            // Jika login berhasil, regenerasi session
             $request->session()->regenerate();
 
-            // Redirect based on user role
+            // Redirect berdasarkan role pengguna
             if (Auth::user()->role === 'admin') {
                 session()->flash('success', 'Admin login berhasil!');
-                return redirect()->intended('/admin');
+                return redirect()->route('admin.dashboard'); // Redirect ke dashboard admin
             } elseif (Auth::user()->role === 'officer') {
                 session()->flash('success', 'Officer login berhasil!');
-                return redirect()->intended('/officer');
+                return redirect()->route('officer.dashboard'); // Redirect ke dashboard officer
             }
 
-            // Optional: handle other roles or add a default redirect
-            return redirect()->intended('/')->with('success', 'Selamat datang! Anda berhasil login.');
+            // Jika role tidak dikenali, arahkan ke homepage atau halaman default
+            return redirect()->route('homepage')->with('success', 'Selamat datang! Anda berhasil login.');
         }
 
+        // Jika login gagal, lemparkan error validasi
         throw ValidationException::withMessages([
             'username' => ['Username atau password salah. Silakan coba lagi.'],
         ]);
@@ -50,10 +52,10 @@ class LoginController extends Controller
     // Menangani proses logout
     public function logout(Request $request)
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        Auth::logout(); // Logout pengguna
+        $request->session()->invalidate(); // Menghapus session
+        $request->session()->regenerateToken(); // Regenerasi CSRF token
         
-        return redirect('/login');
+        return redirect()->route('login'); // Redirect kembali ke halaman login
     }
 }
