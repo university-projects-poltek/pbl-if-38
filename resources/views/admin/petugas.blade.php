@@ -28,22 +28,27 @@
       <tbody>
         @foreach ($data as $item)
         <tr>
-          <td style="text-align: center;background-color: #D9D9D9;">{{$item['Nama']}}</td>
-          <td style="text-align: center;background-color: #D9D9D9;">{{$item['Email']}}</td>
-          <td style="text-align: center;background-color: #D9D9D9;">{{$item['nohp']}}</td>
-          <td style="text-align: center;background-color: #D9D9D9;">{{$item['location']}}</td>
-          <td style="text-align: center;background-color: #D9D9D9;">{{$item['Role']}}</td>
-          <td style="text-align: center;background-color: #D9D9D9;"><a href="{{route('admin.edit.petugas',['id'=>1])}}" class="btn btn-warning">Edit</button></td>
+          <td style="text-align: center;background-color: #D9D9D9;">{{$item->name}}</td>
+          <td style="text-align: center;background-color: #D9D9D9;">{{$item->email}}</td>
+          <td style="text-align: center;background-color: #D9D9D9;">{{$item->phone}}</td>
+          <td style="text-align: center;background-color: #D9D9D9;">{{$item->office}}</td>
+          <td style="text-align: center;background-color: #D9D9D9;">{{$item->role}}</td>
+          <td style="text-align: center;background-color: #D9D9D9;">
+            <a href="{{route('admin.edit.petugas',['id' => $item->id])}}" class="btn btn-warning">Edit</a>
+            <form action="{{ route('admin.delete.petugas', ['id' => $item->id]) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this item?');">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </td>
         </tr>
-            
         @endforeach
       </tbody>
     </table>
   </div>
-   
 </div>
-
 @endsection
+
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
