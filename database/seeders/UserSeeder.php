@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -13,28 +12,26 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name' => 'Admin User',
-            'username' => 'admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-        ]);
+        // Memastikan 'admin' tidak ada sebelum membuatnya
+        if (!User::where('username', 'admin')->exists()) {
+            User::create([
+                'name' => 'Admin User',
+                'username' => 'admin',
+                'email' => 'admin@example.com',
+                'password' => Hash::make('admin123'), // Ganti dengan password yang aman
+                'role' => 'admin',
+            ]);
+        }
 
-        User::create([
-            'name' => 'Officer User',
-            'username' => 'officer',
-            'email' => 'officer@example.com',
-            'password' => Hash::make('password'),
-            'role' => 'officer',
-        ]);
-
-        User::create([
-            'name' => 'User',
-            'username' => 'user1',
-            'email' => 'user@example.com',
-            'password' => Hash::make('password'),
-            'role' => 'user',
-        ]);
+        // Memastikan 'officer' tidak ada sebelum membuatnya
+        if (!User::where('username', 'officer')->exists()) {
+            User::create([
+                'name' => 'Officer User',
+                'username' => 'officer',
+                'email' => 'officer@example.com',
+                'password' => Hash::make('officer123'), // Ganti dengan password yang aman
+                'role' => 'officer',
+            ]);
+        }
     }
 }

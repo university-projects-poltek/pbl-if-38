@@ -128,8 +128,8 @@
                     <div class="button-area row mb-3">
                         <div class="col-md-5"></div>
                         <div class="col d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary me-1" >Update</button>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <button type="submit" class="btn btn-danger me-1" >Hapus</button>
+                            <a href="" class="btn btn-primary">Simpan</a>
                         </div>
                     </div>
                 </form>

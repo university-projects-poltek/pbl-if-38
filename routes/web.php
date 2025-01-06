@@ -30,16 +30,10 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-
-Route::get('/profile', function () {
-    return view('officer.profileOfficer');
-});
-
-Route::get('/petugas', function () {
-    return view('officer.petugas');
-});
-
-
-Route::get('/dashboard', function () {
-    return view('templates.defaultOfficer');
-});
+Route::get('/officer/dashboard', [OfficerController::class, 'indexOfficer'])->name('dashboard');
+Route::get('/officer/profile', [OfficerController::class, 'profile'])->name('profile');
+Route::get('/officer/table', [OfficerController::class, 'officersTable'])->name('officersTable');
+Route::get('/officer/table/addofficer', [OfficerController::class, 'addOfficer'])->name('addOfficer');
+Route::get('/officer/reports', [OfficerController::class, 'reportsTable'])->name('reportsTable');
+Route::get('/officer/reports/edit/{id}/edit', [OfficerController::class, 'editReport'])->name('editReport');
+Route::put('/officer/reports/{id}/{status}', [OfficerController::class, 'updateReportStatus'])->name('updateReportStatus');

@@ -5,6 +5,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>@yield('title', 'Default Title')</title>
+        <link rel="icon" href="asset('assets/favicon.ico')" type="">
         @include('layouts.basic')
     </head>
     <body>
@@ -17,7 +18,12 @@
                     <!-- Header -->
                     <div>
                         <h2>
-                            @yield('breadCrumb','nampePage')
+                            @yield('breadCrumb','namePage') 
+                            @if (session('namePage') === 'officer' && request()->routeIs('officersTable'))
+                                <a href="{{ route('addOfficer') }}" class="">
+                                    <span class="iconify" data-icon="ic:baseline-add-circle"></span>
+                                </a>
+                            @endif
                         </h2>
                     </div>
                     <!-- Card Content -->

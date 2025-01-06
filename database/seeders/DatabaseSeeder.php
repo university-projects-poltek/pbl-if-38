@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         // Memanggil UserSeeder untuk menambahkan pengguna admin dan officer
         $this->call(UserSeeder::class);
+        $this->call(ReportsSeeder::class);
     }
 }

@@ -41,7 +41,7 @@
         <button type="submit"
             class="btn btn-primary">Masuk</button>
     </form>
-    <p class="mt-3">Belom punya akun? <a href="{{ route('register') }}"
+    <p class="mt-3">Belum punya akun? <a href="{{ route('register') }}"
             class="text-primary">Daftar</a></p>
 </div>
 

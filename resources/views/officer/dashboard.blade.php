@@ -9,9 +9,11 @@
 <div class="mt-4 card-content">
     <div class="p-4" style="border-bottom: 2px solid #125491">
         <h3>Jumlah Akun Petugas</h3>
+        <p>Belum ada akun petugas</p>
     </div>
     <div class="p-4" style="border-bottom: 2px solid #125491">
         <h3>Informasi Petugas</h3>
+        <p>Belum ada informasi petugas</p>
     </div>
     <div class="row" style="border-bottom: 2px solid #125491">
         <div class="col-md-4">
