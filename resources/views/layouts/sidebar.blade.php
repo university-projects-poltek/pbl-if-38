@@ -21,7 +21,6 @@
             <span class="iconify side-icon"
                 data-icon="cil:people"
                 data-inline="false"></span>
-
             Petugas
         </a>
         <a href="{{ route('reportsTable') }}">

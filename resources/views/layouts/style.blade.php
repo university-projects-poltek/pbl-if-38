@@ -1,4 +1,3 @@
-
 <style>
     body {
         font-family: 'kanit', sans-serif;
@@ -67,6 +66,5 @@
         background-color: transparent; 
         border: 2px solid #125491;
     }
-
 </style>
 
