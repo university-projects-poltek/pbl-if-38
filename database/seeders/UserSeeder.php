@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -33,5 +34,13 @@ class UserSeeder extends Seeder
                 'role' => 'officer',
             ]);
         }
+
+        User::create([
+            'name' => 'User',
+            'username' => 'user1',
+            'email' => 'user@example.com',
+            'password' => Hash::make('password'),
+            'role' => 'user',
+        ]);
     }
 }

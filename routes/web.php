@@ -27,7 +27,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('user.homepage');
-    });
+    })->name('home');
 });
 
 Route::get('/officer/dashboard', [OfficerController::class, 'indexOfficer'])->name('dashboard');
@@ -42,6 +42,18 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+    Route::get('/location', function () {
+        return view('location');
+    })->name('location');
+    Route::get('/camera', function () {
+        return view('camera');
+    })->name('camera');
+    Route::get('/history', function () {
+        return view('history');
+    })->name('history');
+    Route::get('/profile', function () {
+        return view('profile');
+    })->name('profile');
 
     Route::get('/admin/petugas', [AdminController::class, 'petugas'])->name('admin.petugas');
     Route::get('/admin/edit/petugas/{id}', [AdminController::class, 'editPetugas'])->name('admin.edit.petugas');

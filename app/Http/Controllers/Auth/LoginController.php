@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -40,7 +41,7 @@ class LoginController extends Controller
             }
 
             // Jika role tidak dikenali, arahkan ke homepage atau halaman default
-            return redirect()->route('homepage')->with('success', 'Selamat datang! Anda berhasil login.');
+            return redirect()->route('home')->with('success', 'Selamat datang! Anda berhasil login.');
         }
 
         // Jika login gagal, lemparkan error validasi
@@ -55,7 +56,7 @@ class LoginController extends Controller
         Auth::logout(); // Logout pengguna
         $request->session()->invalidate(); // Menghapus session
         $request->session()->regenerateToken(); // Regenerasi CSRF token
-        
+
         return redirect()->route('login'); // Redirect kembali ke halaman login
     }
 }
