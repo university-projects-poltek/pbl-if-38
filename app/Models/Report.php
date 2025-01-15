@@ -11,10 +11,26 @@ class Report extends Model
 
     protected $table = 'reports';
 
-    // Relasi dengan HasilPrioritas
-    public function PrioritizedResult()
+    // Relasi dengan PrioritizedResult
+    public function prioritizedResult()
     {
-        // return $this->hasMany(PrioritizedResult::class, 'report_id');
-        return $this->hasOne(PrioritizedResult::class, 'report_id');
+        return $this->hasOne(PrioritizedResults::class, 'report_id');
+    }
+
+    /**
+     * Get reports with accepted status ordered by TOPSIS score.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public static function getAcceptedReportsOrderedByScore()
+    {
+        return self::where('status', 'Diterima')
+            ->with(['prioritizedResult' => function ($query) {
+                $query->orderByDesc('topsis_score');
+            }])
+            ->orderByDesc(PrioritizedResults::select('topsis_score')
+            ->whereColumn('prioritized_results.report_id', 'reports.id')
+            ->limit(1))
+            ->get();
     }
 }

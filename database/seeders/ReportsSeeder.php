@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -46,7 +46,7 @@ class ReportsSeeder extends Seeder
                 'area' => 'Publik',
                 'weather' => 'Badai',
                 'report_date' => '2023-10-03',
-                'status' => 'Diproses',
+                'status' => 'Diterima',
             ],
             [
                 'photo' => 'foto4.jpg',
@@ -57,7 +57,7 @@ class ReportsSeeder extends Seeder
                 'area' => 'Perumahan',
                 'weather' => 'Beraawan',
                 'report_date' => '2023-10-04',
-                'status' => 'Selesai',
+                'status' => 'Diterima',
             ],
             // Tambahkan lebih banyak data sesuai kebutuhan
         ]);

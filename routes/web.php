@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OfficerController;
-use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
@@ -28,15 +28,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('user.homepage');
     })->name('home');
+    
+    Route::get('/officer/dashboard', [OfficerController::class, 'indexOfficer'])->name('dashboard');
+    Route::get('/officer/profile', [OfficerController::class, 'profile'])->name('profile');
+    Route::get('/officer/table', [OfficerController::class, 'officersTable'])->name('officersTable');
+    Route::get('/officer/table/addofficer', [OfficerController::class, 'addOfficer'])->name('addOfficer');
+    Route::get('/officer/reports', [OfficerController::class, 'reportsTable'])->name('reportsTable');
+    Route::get('/officer/reports/edit/{id}/edit', [OfficerController::class, 'editReport'])->name('editReport');
+    Route::put('/officer/reports/{id}/{status}', [OfficerController::class, 'updateReportStatus'])->name('updateReportStatus');
 });
-
-Route::get('/officer/dashboard', [OfficerController::class, 'indexOfficer'])->name('dashboard');
-Route::get('/officer/profile', [OfficerController::class, 'profile'])->name('profile');
-Route::get('/officer/table', [OfficerController::class, 'officersTable'])->name('officersTable');
-Route::get('/officer/table/addofficer', [OfficerController::class, 'addOfficer'])->name('addOfficer');
-Route::get('/officer/reports', [OfficerController::class, 'reportsTable'])->name('reportsTable');
-Route::get('/officer/reports/edit/{id}/edit', [OfficerController::class, 'editReport'])->name('editReport');
-Route::put('/officer/reports/{id}/{status}', [OfficerController::class, 'updateReportStatus'])->name('updateReportStatus');
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin', function () {

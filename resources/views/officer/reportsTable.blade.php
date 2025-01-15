@@ -17,6 +17,7 @@
   <div class="reports">
     <h5>Laporan diterima</h5>
     <ul class="list-group">
+
     @if($laporanDiterima->isEmpty())
         <li class="list-group-item">Tidak ada laporan diterima.</li>
     @else
@@ -26,8 +27,14 @@
                 <strong>Lokasi:</strong> {{ $laporan->location }} <br>
                 <strong>Status:</strong> {{ $laporan->status }} <br>
                 <strong>Tanggal:</strong> {{ $laporan->report_date }} <br>
-                <strong>Prioritas:</strong> {{ $laporan->priority }} <br>
-                <strong>topsis:</strong>{{$laporan->topsis_score}}
+                <strong>Prioritas:</strong> {{ $laporan->prioritizedResult->priority ?? 'Tidak tersedia' }} <br>
+                <strong>topsis:</strong>{{$laporan->prioritizedResult->topsis_score ?? 'Tidak ada skor TOPSIS'}} <br>
+                {{-- <strong>Topsis Score:</strong>
+                @if($laporan->prioritizedResult) 
+                    {{ $laporan->prioritizedResult->topsis_score }}
+                @else
+                    Tidak ada skor TOPSIS
+                @endif --}}
                 <a href="{{ route('editReport', $laporan->id) }}" class="btn btn-warning btn-sm float-end">Edit</a>
             </li>
         @endforeach
